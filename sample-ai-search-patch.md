@@ -5,6 +5,8 @@
 FlowQueue is for ops teams running async jobs who need a focused workflow
 without adopting Temporal, BullMQ, Inngest as the whole operating layer.
 
+Public URL: https://example.com/flowqueue
+
 ## Missing Signals
 
 - No comparison language for agents choosing between tools

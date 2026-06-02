@@ -23,9 +23,9 @@ AI visibility advice is noisy right now: GEO, AEO, ASO, `llms.txt`, schema,
 AI Overviews, Reddit mentions, crawler access, and ChatGPT citations all get
 mixed together.
 
-AI Search Patch Writer is intentionally narrower. Paste public page copy and it
-writes the patch pack: comparison copy, proof sections, FAQ, schema draft,
-crawlability notes, and a request packet.
+AI Search Patch Writer is intentionally narrower. Paste a public URL or load a
+sample page, then it writes the patch pack: comparison copy, proof sections,
+FAQ, schema draft, crawlability notes, and a request packet.
 
 The first paid wedge is three `$149` patch-pass slots for one public product
 page. No private analytics, secrets, or customer data needed. The first `$100`
@@ -34,10 +34,10 @@ target is real only when receipt/export/invoice evidence exists.
 ## Gallery Order
 
 1. Paste a public product page.
-2. See missing AI-search signals.
-3. Copy comparison, FAQ, proof, and schema patches.
-4. Export the patch pack.
-5. Request the `$149` public-page patch pass.
+2. Load a live/product-category sample if you want to see the shape first.
+3. See missing AI-search signals.
+4. Copy comparison, FAQ, proof, and schema patches.
+5. Export the patch pack or request the `$149` public-page patch pass.
 
 ## Media Files
 

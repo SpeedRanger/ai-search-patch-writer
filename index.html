@@ -30,6 +30,13 @@
     textarea { min-height: 250px; resize: vertical; line-height: 1.5; }
     input:focus, textarea:focus { outline: 2px solid var(--accent); outline-offset: 2px; border-color: var(--accent); }
     .row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .samples { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin: 14px 0 4px; }
+    .sample {
+      border: 1px solid var(--line); background: #f6fafb; color: var(--ink); min-height: 48px;
+      padding: 9px 10px; text-align: left; font-size: 12px; line-height: 1.25;
+    }
+    .sample strong { display: block; font-size: 13px; }
+    .sample span { display: block; color: var(--muted); font-weight: 650; }
     .actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
     button { border: 1px solid var(--ink); background: var(--ink); color: var(--panel); min-height: 42px; padding: 10px 14px; border-radius: 6px; font-weight: 850; cursor: pointer; }
     button.secondary { background: transparent; color: var(--ink); border-color: var(--line); }
@@ -58,7 +65,7 @@
     @media (max-width: 920px) {
       main { display: block; }
       .input { border-right: 0; border-bottom: 1px solid var(--line); }
-      .row, .slots { grid-template-columns: 1fr; }
+      .row, .slots, .samples { grid-template-columns: 1fr; }
       h1 { font-size: 42px; }
     }
   </style>
@@ -69,6 +76,13 @@
       <p class="eyebrow">AI visibility fixes</p>
       <h1>Stop buying dashboards. Ship the AI-search page patch.</h1>
       <p class="sub">Paste a product page. Get comparison copy, proof sections, FAQ, schema, crawl notes, and an agent-readable patch pack that makes the product easier to cite and choose.</p>
+      <div class="samples" aria-label="Load examples">
+        <button class="sample" data-sample="vibefix"><strong>Live product</strong><span>Patch VibeFix</span></button>
+        <button class="sample" data-sample="devtool"><strong>Devtool SaaS</strong><span>Fix vague AI copy</span></button>
+        <button class="sample" data-sample="local"><strong>Local service</strong><span>Add buyer proof</span></button>
+      </div>
+      <label for="url">Public product/page URL</label>
+      <input id="url" value="https://example.com/flowqueue">
       <div class="row">
         <div>
           <label for="product">Product</label>
@@ -115,6 +129,29 @@
     const $ = (id) => document.getElementById(id);
     const esc = (value) => value.replace(/[&<>]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;" }[c]));
     const splitCompetitors = (value) => value.split(",").map((item) => item.trim()).filter(Boolean);
+    const samples = {
+      vibefix: {
+        url: "https://speedranger.github.io/vibefix-recorder/",
+        product: "VibeFix Recorder",
+        buyer: "builders fixing vibe-coded app failures",
+        copy: "VibeFix Recorder turns broken vibe-coded app behavior into an agent-ready fix packet: suspected causes, reproduction steps, a patch prompt, and a verification checklist.",
+        competitors: "Cursor bug reports, Claude Code prompts, manual QA notes"
+      },
+      devtool: {
+        url: "https://example.com/proofdesk",
+        product: "ProofDesk",
+        buyer: "B2B SaaS teams losing AI-search recommendations",
+        copy: "ProofDesk helps teams improve AI visibility with fast audits and dashboards. Track brand mentions across ChatGPT, Perplexity, and Google AI Overviews.",
+        competitors: "Peec AI, Profound, Semrush, Ahrefs"
+      },
+      local: {
+        url: "https://example.com/austin-roof-repair",
+        product: "Austin Roof Repair Co",
+        buyer: "homeowners comparing urgent roof repair options",
+        copy: "Austin Roof Repair Co provides reliable roofing services, inspections, and emergency repairs. Contact our team for help with your roof.",
+        competitors: "Angi, Yelp, Google Business Profile, local competitors"
+      }
+    };
 
     function gaps(copy) {
       const lower = copy.toLowerCase();
@@ -132,6 +169,7 @@
     function build() {
       const product = $("product").value.trim() || "Product";
       const buyer = $("buyer").value.trim() || "target buyer";
+      const publicUrl = $("url").value.trim() || "[paste public URL]";
       const page = $("copy").value.trim();
       const competitors = splitCompetitors($("competitors").value);
       const missing = gaps(page);
@@ -169,6 +207,8 @@
 ## Positioning
 ${comparison}
 
+Public URL: ${publicUrl}
+
 ## Missing Signals
 ${missing.map((item) => `- ${item}`).join("\n")}
 
@@ -203,7 +243,7 @@ Safety: share public URLs only. Do not paste secrets, tokens, private repos, pri
       const requestPacket = `AI Search Patch Writer $149 request
 
 Public product/page URL:
-[paste public URL]
+${publicUrl}
 
 Target buyer:
 ${buyer}
@@ -220,7 +260,7 @@ I confirm this request contains only public URLs and public page copy. No secret
       $("score").textContent = score;
       $("result").innerHTML = `
         <section><h2>Gaps</h2><ul>${missing.map((item) => `<li>${item}</li>`).join("") || "<li>Core signals present. Add fresher proof.</li>"}</ul></section>
-        <section><h2>Comparison patch</h2><div class="patch"><b>Use this above the fold</b>${esc(comparison)}</div></section>
+        <section><h2>Comparison patch</h2><div class="patch"><b>Use this above the fold</b>${esc(comparison)}<br><br><b>Public page</b>${esc(publicUrl)}</div></section>
         <section><h2>Proof objects</h2><ul>${proof.map((item) => `<li>${esc(item)}</li>`).join("")}</ul></section>
         <section><h2>FAQ patch</h2><ul>${faq.map((item) => `<li>${esc(item)}</li>`).join("")}</ul></section>
         <section><h2>Crawlability</h2><p><span class="check">Static explanation</span><span class="check">Robots over magic files</span><span class="check">Proof pages linked</span></p><ul>${crawl.map((item) => `<li>${esc(item)}</li>`).join("")}</ul></section>
@@ -240,7 +280,18 @@ I confirm this request contains only public URLs and public page copy. No secret
     }
 
     let latest = build();
-    ["product", "buyer", "copy", "competitors"].forEach((id) => $(id).addEventListener("input", () => { latest = build(); }));
+    ["url", "product", "buyer", "copy", "competitors"].forEach((id) => $(id).addEventListener("input", () => { latest = build(); }));
+    document.querySelectorAll("[data-sample]").forEach((button) => {
+      button.addEventListener("click", () => {
+        const sample = samples[button.dataset.sample];
+        $("url").value = sample.url;
+        $("product").value = sample.product;
+        $("buyer").value = sample.buyer;
+        $("copy").value = sample.copy;
+        $("competitors").value = sample.competitors;
+        latest = build();
+      });
+    });
     $("compile").addEventListener("click", () => { latest = build(); });
     $("copyMd").addEventListener("click", async () => navigator.clipboard.writeText(latest.patch));
     $("copyRequest").addEventListener("click", async () => navigator.clipboard.writeText(latest.requestPacket));

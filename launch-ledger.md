@@ -7,7 +7,7 @@
 
 ## Current Gates
 
-- Public site current: done, prepared for verification 2026-06-02.
+- Public site current: done, verified 2026-06-02.
 - Product Hunt listing: missing.
 - Product Hunt leaderboard proof: missing.
 - Verified revenue over `$100`: missing.
@@ -24,8 +24,8 @@
 
 - Submit handoff: `product-hunt-submit-handoff-2026-06-02.md`
 - Status: not submitted.
-- Blocker: Product Hunt submission requires an interactive logged-in
-  browser/account action.
+- Blocker: headless Product Hunt submit page shows Cloudflare/security
+  verification; requires interactive logged-in browser/account action.
 
 ## Revenue
 
