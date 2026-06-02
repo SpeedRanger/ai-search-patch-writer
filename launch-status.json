@@ -1,0 +1,48 @@
+{
+  "product": "AI Search Patch Writer",
+  "status_date": "2026-06-02",
+  "public_url": "https://speedranger.github.io/ai-search-patch-writer/",
+  "repo_url": "https://github.com/SpeedRanger/ai-search-patch-writer",
+  "positioning": "Turns AI-search gaps into concrete public-page patches.",
+  "offer": {
+    "name": "AI-search patch pass",
+    "price_usd": 149,
+    "revenue_goal_usd": 100,
+    "unit_goal": 1,
+    "proof_required": "receipt, checkout export, or paid invoice"
+  },
+  "public_assets": [
+    "index.html",
+    "README.md",
+    "llms.txt",
+    "AGENTS.md",
+    "sample-ai-search-patch.md",
+    "product-hunt-launch-assets.md",
+    "product-hunt-submit-handoff-2026-06-02.md",
+    "launch-ledger.md",
+    "SECURITY.md",
+    "ph-thumbnail.png",
+    "ph-gallery-1-app.png",
+    "ph-gallery-2-ai-visibility-gap.png"
+  ],
+  "completion_gates": {
+    "public_site_current": true,
+    "product_hunt_listing_url": false,
+    "product_hunt_rank_proof": false,
+    "verified_revenue_over_100_usd": false
+  },
+  "no_claims_until_proven": [
+    "Product Hunt listing",
+    "Product Hunt leaderboard rank",
+    "AI-search ranking or citation lift",
+    "week-one revenue"
+  ],
+  "privacy_boundary": [
+    "No private analytics",
+    "No private repos",
+    "No secrets",
+    "No tokens",
+    "No customer data",
+    "No payment details in public issues"
+  ]
+}

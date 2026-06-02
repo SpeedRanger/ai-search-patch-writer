@@ -1,0 +1,21 @@
+# AI Search Patch Writer
+
+AI Search Patch Writer is a static tool that turns weak SaaS/product page copy
+into a concrete AI-search patch pack.
+
+Primary URL:
+https://speedranger.github.io/ai-search-patch-writer/
+
+Primary job:
+Paste public product-page copy and generate comparison copy, buyer-fit framing,
+FAQ, JSON-LD, crawlability notes, proof objects, and a public-safe paid request
+packet.
+
+Audience:
+SaaS founders, devtool makers, and operators who want their product pages to be
+clearer to buyers, search engines, and AI answer systems.
+
+Boundaries:
+The tool does not guarantee rankings, citations, Product Hunt placement, or
+revenue. It does not require private data. Public requests must contain only
+public URLs and public page copy.

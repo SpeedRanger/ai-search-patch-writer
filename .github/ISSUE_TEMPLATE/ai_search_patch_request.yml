@@ -1,0 +1,51 @@
+name: AI-search patch pass request
+description: Request a public-safe $149 AI-search patch pass for one product page.
+title: "Patch pass: <product/page>"
+labels:
+  - patch-pass
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Public URLs and public page copy only. Do not include secrets, tokens,
+        private repositories, private analytics, customer data, or payment
+        details in this public issue.
+  - type: input
+    id: public_url
+    attributes:
+      label: Public product/page URL
+      description: Paste the public page to patch.
+      placeholder: https://example.com/product
+    validations:
+      required: true
+  - type: input
+    id: buyer
+    attributes:
+      label: Target buyer
+      placeholder: B2B SaaS founders selling to support teams
+    validations:
+      required: true
+  - type: textarea
+    id: competitors
+    attributes:
+      label: Competitors or alternatives
+      description: Public competitor names only.
+      placeholder: Competitor A, Competitor B, manual spreadsheets
+    validations:
+      required: false
+  - type: textarea
+    id: generated_packet
+    attributes:
+      label: Generated patch packet
+      description: Paste the exported AI Search Patch Writer packet if available.
+    validations:
+      required: false
+  - type: checkboxes
+    id: safety
+    attributes:
+      label: Public-safety confirmation
+      options:
+        - label: This request contains only public URLs and public page copy.
+          required: true
+        - label: This request contains no secrets, tokens, private analytics, private repos, customer data, or payment details.
+          required: true
