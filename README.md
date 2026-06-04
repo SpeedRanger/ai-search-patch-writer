@@ -24,6 +24,7 @@ to understand, compare, cite, and choose.
 - `sample-ai-search-patch.md` - public example output
 - `product-hunt-launch-assets.md` - Product Hunt copy and launch replies
 - `buyer-outreach-packet.md` - public-safe buyer targeting and message copy
+- `launch-room-2026-06-04.md` - Product Hunt and revenue execution room
 - `ph-gallery-1-app.png`, `ph-gallery-2-ai-visibility-gap.png`,
   `ph-thumbnail.png` - Product Hunt media generated from the actual app
 - `llms.txt` - machine-readable product summary
@@ -47,7 +48,8 @@ The buyer sends a public URL and receives:
 - rollback note
 
 The app includes sample loaders for VibeFix Recorder, a devtool SaaS page, and a
-local-service page so buyers can see the patch shape before submitting.
+local-service page so buyers can see the patch shape before submitting. It can
+also copy a public-safe comment for launch/review threads.
 
 Do not collect secrets, private repo access, private analytics, customer data,
 payment details, or private strategy in public issues.

@@ -101,6 +101,7 @@
         <button id="compile">Write patch</button>
         <button id="copyMd" class="secondary">Copy Markdown</button>
         <button id="copyRequest" class="secondary">Copy request packet</button>
+        <button id="copyComment" class="secondary">Copy public comment</button>
         <button id="download" class="secondary">Download</button>
       </div>
       <div class="offer">
@@ -256,6 +257,16 @@ ${patch}
 
 Safety confirmation:
 I confirm this request contains only public URLs and public page copy. No secrets, tokens, private repositories, private analytics, customer data, or payment details are included.`;
+      const publicComment = `${product} already has enough public signal for a stronger AI-search patch.
+
+The gap is not another visibility dashboard; it is public-page context that agents and buyers can actually use: who ${product} is for, when to choose it, when not to, proof, comparison language, FAQ/schema, and crawlability notes.
+
+I ran the page through AI Search Patch Writer and the useful patch areas are: ${missing.slice(0, 3).join("; ")}.
+
+Tool: https://speedranger.github.io/ai-search-patch-writer/
+Public page checked: ${publicUrl}
+
+Public URLs only. No private analytics, secrets, or customer data.`;
       $("patchTitle").textContent = `${product} for ${buyer}`;
       $("score").textContent = score;
       $("result").innerHTML = `
@@ -266,7 +277,7 @@ I confirm this request contains only public URLs and public page copy. No secret
         <section><h2>Crawlability</h2><p><span class="check">Static explanation</span><span class="check">Robots over magic files</span><span class="check">Proof pages linked</span></p><ul>${crawl.map((item) => `<li>${esc(item)}</li>`).join("")}</ul></section>
         <section><h2>Schema draft</h2><pre>${esc(JSON.stringify(schema, null, 2))}</pre></section>
       `;
-      return { patch, requestPacket };
+      return { patch, requestPacket, publicComment };
     }
 
     function downloadText(filename, content) {
@@ -295,6 +306,7 @@ I confirm this request contains only public URLs and public page copy. No secret
     $("compile").addEventListener("click", () => { latest = build(); });
     $("copyMd").addEventListener("click", async () => navigator.clipboard.writeText(latest.patch));
     $("copyRequest").addEventListener("click", async () => navigator.clipboard.writeText(latest.requestPacket));
+    $("copyComment").addEventListener("click", async () => navigator.clipboard.writeText(latest.publicComment));
     $("download").addEventListener("click", () => downloadText("ai-search-patch.md", latest.patch));
   </script>
 </body>
