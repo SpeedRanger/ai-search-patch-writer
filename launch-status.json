@@ -21,6 +21,7 @@
     "product-hunt-submit-handoff-2026-06-02.md",
     "buyer-outreach-packet.md",
     "launch-room-2026-06-04.md",
+    "revenue-sprint-2026-06-04.md",
     "launch-ledger.md",
     "SECURITY.md",
     "ph-thumbnail.png",
@@ -33,6 +34,7 @@
     "product_hunt_rank_proof": false,
     "verified_revenue_over_100_usd": false
   },
+  "public_launch_issue_url": "https://github.com/SpeedRanger/ai-search-patch-writer/issues/1",
   "no_claims_until_proven": [
     "Product Hunt listing",
     "Product Hunt leaderboard rank",

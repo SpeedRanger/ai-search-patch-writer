@@ -9,6 +9,7 @@ Live target:
 - Site: https://speedranger.github.io/ai-search-patch-writer/
 - Repo: https://github.com/SpeedRanger/ai-search-patch-writer
 - Public request form: https://github.com/SpeedRanger/ai-search-patch-writer/issues/new?template=ai_search_patch_request.yml
+- Public launch issue: https://github.com/SpeedRanger/ai-search-patch-writer/issues/1
 
 ## Why this exists
 
@@ -25,6 +26,7 @@ to understand, compare, cite, and choose.
 - `product-hunt-launch-assets.md` - Product Hunt copy and launch replies
 - `buyer-outreach-packet.md` - public-safe buyer targeting and message copy
 - `launch-room-2026-06-04.md` - Product Hunt and revenue execution room
+- `revenue-sprint-2026-06-04.md` - concrete public targets and slot links
 - `ph-gallery-1-app.png`, `ph-gallery-2-ai-visibility-gap.png`,
   `ph-thumbnail.png` - Product Hunt media generated from the actual app
 - `llms.txt` - machine-readable product summary
